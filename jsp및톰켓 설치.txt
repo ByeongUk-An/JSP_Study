@@ -1,0 +1,22 @@
+1. JDK 설치 (LTS(안정화된 버전) : 17)
+   - Oracle       : 1.8만 무료,
+   - Open JDK  :  https://adoptopenjdk.net/
+2. Apache tomcat 10.0.20 버전 설치   
+Tom cat 주소 : https://tomcat.apache.org/download-10.cgi
+ 주의 : server Shutdown Port : 8005
+          http connector Port : 8181
+          Tomcat Service Name : Tomcat10
+
+	user name : admin
+	password : 1234
+
+3. 이클립스에서 톰켓을 연동.
+
+
+
+
+
+
+
+
+cmd netstat -na
