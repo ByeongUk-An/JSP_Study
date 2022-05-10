@@ -12,12 +12,13 @@
 <body>
 
 <%
-	Connection conn = null;   // DB를 연결하는 객체
-	String driver = "oracle.jdbc.driver.OracleDriver";   //Oracle Driver에 접속
+	
+	Connection conn = null;   
+	String driver = "oracle.jdbc.driver.OracleDriver";   
 	String url = "jdbc:oracle:thin:@localhost:1521:XE";
 
-	Class.forName(driver);  // 오라클 드라이버 로드함.
-	conn = DriverManager.getConnection(url,"hr","hr");  // url주소,계정,비밀번호
+	Class.forName(driver); 
+	conn = DriverManager.getConnection(url,"hr","hr");  
 
 %>
 
