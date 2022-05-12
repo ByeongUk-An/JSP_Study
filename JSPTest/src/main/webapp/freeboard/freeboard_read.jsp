@@ -1,15 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
     
 <%@ page import="java.sql.*,java.util.*,java.text.*" %> 
-<% request.setCharacterEncoding("UTF-8"); %>
+<% request.setCharacterEncoding("EUC-KR"); %>
 <%@ include file = "dbconn_oracle.jsp" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>ì»¬ëŸ¼ì˜ íŠ¹ì • ë ˆì½”ë“œë¥¼ ì½ëŠ” í˜ì´ì§€ </title>
+<meta charset="EUC-KR">
+<title>ÄÃ·³ÀÇ Æ¯Á¤ ·¹ÄÚµå¸¦ ÀĞ´Â ÆäÀÌÁö </title>
 </head>
 <body>
 
@@ -27,7 +27,7 @@
 	//out.println (name + "<p>");
 	// out.println (email); 
 	
-	// if (true) return;    // í”„ë¡œê·¸ë¨ì„ ì—¬ê¸°ì„œ ë©ˆì¶¤. (ë””ë²„ê¹… ì‹œì— ë§ì´ ì‚¬ìš©. )
+	// if (true) return;    // ÇÁ·Î±×·¥À» ¿©±â¼­ ¸ØÃã. (µğ¹ö±ë ½Ã¿¡ ¸¹ÀÌ »ç¿ë. )
 	
 	try {
 		sql = "select * from freeboard where id = ? "; 
@@ -35,20 +35,20 @@
 		pstmt.setInt(1, id); 
 		rs = pstmt.executeQuery(); 
 		
-		if ( !(rs.next())){   // ê°’ì´ ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ê²½ìš°
-			out.println ("ë°ì´íƒ€ë² ì´ìŠ¤ì— í•´ë‹¹ ë‚´ìš©ì´ ì—†ìŠµë‹ˆë‹¤. "); 
-		}else {				//ê°’ì´ ì¡´ì¬í•˜ëŠ” ê²½ìš° , rs ì˜ ê°’ë“¤ì„ í™”ë©´ì— ì¶œë ¥ 
-			// out.println ("ë°ì´íƒ€ ë² ì´ìŠ¤ì— ê°’ì´ ì¡´ì¬ í•©ë‹ˆë‹¤. "); 
+		if ( !(rs.next())){   // °ªÀÌ Á¸ÀçÇÏÁö ¾Ê´Â °æ¿ì
+			out.println ("µ¥ÀÌÅ¸º£ÀÌ½º¿¡ ÇØ´ç ³»¿ëÀÌ ¾ø½À´Ï´Ù. "); 
+		}else {				//°ªÀÌ Á¸ÀçÇÏ´Â °æ¿ì , rs ÀÇ °ªµéÀ» È­¸é¿¡ Ãâ·Â 
+			// out.println ("µ¥ÀÌÅ¸ º£ÀÌ½º¿¡ °ªÀÌ Á¸Àç ÇÕ´Ï´Ù. "); 
 			String em = rs.getString("email"); 
-			if ((em !=null) && (!(em.equals("")))){   // DBì˜ email ì»¬ëŸ¼ì˜ ê°’ì´ ì¡´ì¬í•˜ë©´
+			if ((em !=null) && (!(em.equals("")))){   // DBÀÇ email ÄÃ·³ÀÇ °ªÀÌ Á¸ÀçÇÏ¸é
 				em = "<A href = mailto:" + em + ">" + rs.getString("name") + "</A>" ; 
-			}else {  //ë©”ì¼ ì£¼ì†Œì˜ ê°’ì´ ë¹„ì–´ìˆì„ë•Œ ì´ë¦„ë§Œ ì¶œë ¥
+			}else {  //¸ŞÀÏ ÁÖ¼ÒÀÇ °ªÀÌ ºñ¾îÀÖÀ»¶§ ÀÌ¸§¸¸ Ãâ·Â
 				em = rs.getString("name"); 
 			}
 			
 			// out.println (em); 
 		
-			//ì„œë¸”ë¦¿ìœ¼ë¡œ ì¶œë ¥ , ì„œë¸”ë¦¿ : JAVAì—ì„œ ì›¹í˜ì´ì§€ë¥¼ ì¶œë ¥ í• ìˆ˜ ìˆëŠ” Java í˜ì´ì§€
+			//¼­ºí¸´À¸·Î Ãâ·Â , ¼­ºí¸´ : JAVA¿¡¼­ À¥ÆäÀÌÁö¸¦ Ãâ·Â ÇÒ¼ö ÀÖ´Â Java ÆäÀÌÁö
 			   out.println("<table width='600' cellspacing='0' cellpadding='2' align='center'>");
 			   out.println("<tr>");
 			   out.println("<td height='22'>&nbsp;</td></tr>");
@@ -64,14 +64,14 @@
 			   out.println("<table width='100%' border='0' cellpadding='0' cellspacing='4' height='1'>");
 			   out.println("<tr bgcolor='#F4F4F4'>");
 			   out.println("<td width='13%' height='7'></td>");
-			   out.println("<td width='51%' height='7'>ê¸€ì“´ì´ : "+ em +"</td>");
+			   out.println("<td width='51%' height='7'>±Û¾´ÀÌ : "+ em +"</td>");
 			   out.println("<td width='25%' height='7'></td>");
 			   out.println("<td width='11%' height='7'></td>");
 			   out.println("</tr>");
 			   out.println("<tr bgcolor='#F4F4F4'>");
 			   out.println("<td width='13%'></td>");
-			   out.println("<td width='51%'>ì‘ì„±ì¼ : " + rs.getString("inputdate") + "</td>");
-			   out.println("<td width='25%'>ì¡°íšŒ : "+(rs.getInt("readcount")+1)+"</td>");
+			   out.println("<td width='51%'>ÀÛ¼ºÀÏ : " + rs.getString("inputdate") + "</td>");
+			   out.println("<td width='25%'>Á¶È¸ : "+(rs.getInt("readcount")+1)+"</td>");
 			   out.println("<td width='11%'></td>");
 			   out.println("</tr>");
 			   out.println("</table>");
@@ -110,7 +110,9 @@
    pstmt = conn.prepareStatement(sql);
    pstmt.setInt(1, id);
    pstmt.executeUpdate();
+   
   }
+		
   rs.close();
   pstmt.close();
   conn.close();
