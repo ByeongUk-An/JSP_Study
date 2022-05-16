@@ -1,30 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
  
 <%@ page language="java" import="java.sql.*,java.util.*" %> 
 <HTML>
 <HEAD>
-<meta charset="UTF-8">
 <SCRIPT language="javascript">
 function check(){
  with(document.msgrewrite){
   if(subject.value.length == 0){
-   alert("ì œëª©ì„ ìž…ë ¥í•´ ì£¼ì„¸ìš”!!");
+   alert("Á¦¸ñÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä!!");
    subject.focus();
    return false;
   }
   if(name.value.length == 0){
-   alert("ì´ë¦„ì„ ìž…ë ¥í•´ ì£¼ì„¸ìš”!!");
+   alert("ÀÌ¸§À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä!!");
    name.focus();
    return false;
   }
   if(password.value.length == 0){
-   alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ ì£¼ì„¸ìš”!!");
+   alert("ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä!!");
    password.focus();
    return false;
   }
   if(content.value.length == 0){
-   alert("ë‚´ìš©ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”!!");
+   alert("³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä!!");
    content.focus();
    return false;
   }
@@ -58,7 +57,7 @@ function check(){
   st = conn.createStatement();
   rs = st.executeQuery(sql);
   if (!(rs.next()))  {
-   out.println("í•´ë‹¹ ë‚´ìš©ì´ ì—†ìŠµë‹ˆë‹¤");
+   out.println("ÇØ´ç ³»¿ëÀÌ ¾ø½À´Ï´Ù");
   } else {
    cont = ">" + rs.getString("content") ;
    while ((pos=cont.indexOf("\n", pos)) != -1) {
@@ -78,13 +77,13 @@ function check(){
      <td colspan="2" bgcolor="#1F4F8F" height="1"></td>
     </tr>
     <tr> 
-     <td colspan="2" bgcolor="#DFEDFF" height="20" class="notice">&nbsp;&nbsp;<font size="2">ê¸€ ë‹µë³€í•˜ê¸°</font></td>
+     <td colspan="2" bgcolor="#DFEDFF" height="20" class="notice">&nbsp;&nbsp;<font size="2">±Û ´äº¯ÇÏ±â</font></td>
     </tr>
     <tr> 
      <td colspan="2" bgcolor="#1F4F8F" height="1"></td>
     </tr>
     <tr> 
-     <td width="124" height="30" align="center" bgcolor="#f4f4f4">ì´ ë¦„</td>
+     <td width="124" height="30" align="center" bgcolor="#f4f4f4">ÀÌ ¸§</td>
      <td width="494"  style="padding:0 0 0 10"><input type=text name=name class="input_style1"></td>
     </tr>
     <tr> 
@@ -92,21 +91,21 @@ function check(){
      <td width="494" style="padding:0 0 0 10" height="25"><input type=text name=email class="input_style1"></td>
     </tr>
     <tr> 
-     <td width="124" align="center"  bgcolor="#f4f4f4">ì œ ëª©</td>
+     <td width="124" align="center"  bgcolor="#f4f4f4">Á¦ ¸ñ</td>
      <td width="494" style="padding:0 0 0 10" height="25">
 	 <input type=text name=subject size="60" class="input_style2" value="Re :<%=rs.getString("subject")%>"></td>
     </tr>
     <tr> 
-     <td width="124" height="162" align="center" valign="top" bgcolor="#f4f4f4" style="padding-top:7;">ë‚´ ìš©</td>
+     <td width="124" height="162" align="center" valign="top" bgcolor="#f4f4f4" style="padding-top:7;">³» ¿ë</td>
      <td width="494" valign="top"  style="padding:5 0 5 10"> 
       <textarea name=content cols="65" rows="10" class="textarea_style1">
 
 -----------------------------------------------------------------------<%=cont%></textarea></td>
     </tr>
     <tr> 
-     <td width="124" align="center"  bgcolor="#f4f4f4">ì•” í˜¸</td>
+     <td width="124" align="center"  bgcolor="#f4f4f4">¾Ï È£</td>
      <td width="494" style="padding:0 0 0 10" height="25"> 
-      <input type='password' name='password'  class="input_style1"><br>(ì •í™•í•œ ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ì•¼ë§Œ ìˆ˜ì •ì´ ë©ë‹ˆë‹¤.)
+      <input type='password' name='password'  class="input_style1"><br>(Á¤È®ÇÑ ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇØ¾ß¸¸ ¼öÁ¤ÀÌ µË´Ï´Ù.)
      </td>
     </tr>
     <tr> 
